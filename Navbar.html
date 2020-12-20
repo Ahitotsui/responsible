@@ -23,11 +23,19 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        #topLogo{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
   
         nav{
             width: 100%;
             height: 70px;
-            position: relative;
+            /* position: relative; */
+            position: fixed;
+            margin-top: -70px;
             background: #F6F6F6;
         }
         
@@ -64,6 +72,7 @@
         }
   
         .menu{
+            margin-top: 70px;
             text-align:center;
             background-color:rgba(255,255,255,0.5);
             transition: 0.5s ease;/*滑らかに表示*/
@@ -130,21 +139,28 @@
         }
 
         main{
-            margin-top: -350px;
-        }
-
-        img{
-            width: 100%;
+            margin-top: -330px;
+            width: 90%;
+            background-color: blanchedalmond;
+            padding: 10px;
+            margin-left: auto;
+            margin-right: auto;
         }
   
     /*----------------------------------ここからPCモニターの記述-----------*/
     @media screen and (min-width: 600px) {
+
+        header{
+            position: fixed;
+            /* width: 100%; */
+        }
         
         /*ロゴの大きさを調整*/
         #logo img{max-width:250px;}
             
         nav{
-            background-color: aqua;
+            margin-top: -130px;
+            background:aqua;
             display: flex;
             justify-content: center;  /*ロゴ中央よせ*/
         }
@@ -154,10 +170,12 @@
         }
 
         .menu{
+            position: fixed;
             width: 100%;
+            margin-top: -60px;
             font-size:0.9em;
             background-color: #000;
-            margin:0 10px;
+            /* margin:0 10px; */
             -webkit-transform: translateX(0);
             transform: translateX(0);
             margin-left: 0px;
@@ -176,9 +194,6 @@
             width: 25%;
             height: 25px;
             padding-top: 5px;
-            /* border-right: solid;
-            border-right-width: 1px;
-            border-right-color: #fff; */
         }
 
         .menu ul li:hover{
@@ -196,7 +211,7 @@
         }
 
         main{
-            margin-top: 0px;
+            margin-top: 130px;
         }
     }
     </style>
@@ -210,7 +225,12 @@
             <div class="drawer">
 
                 <!--- いわゆるロゴ ------>
-                <div id="logo"><a href="#">LOGO</a></div>
+                <div id="logo">
+                    <a href="#">
+                        <img id="topLogo" src="./img/logo_type1.png" width="60%">
+                        <p>LOGO</p>
+                    </a>
+                </div>
                 <!--- いわゆるロゴ ------>
                 
                 <!-- ハンバーガーメニュー部分 --> 
@@ -233,12 +253,49 @@
     </header>
 
     <main>
-        <img src="../navbar/back.png" alt="img">
+        
+        <h1>Article1</h1>
         <p>text</p>
         <p>text</p>
         <p>text</p>
         <p>text</p>
         <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+
     </main>
 
     
