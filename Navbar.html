@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+
+        img{width:100%;}
+ 
+        /*ロゴの大きさを調整*/
+        #logo img {
+            max-width:50%;
+        }
+
+        #logo{
+            margin-left: auto;
+            margin-right: auto;
+        }
+  
+        nav{
+            width: 100%;
+            height: 70px;
+            position: relative;
+            background: #F6F6F6;
+        }
+        
+        .drawer{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            height: 70px;
+            padding: 0 1em;
+        }
+  
+        /*ナビゲーション部分*/
+        .menu ul li a {
+            display:block;
+            font-weight:bold;
+            padding: 2em;
+            border-bottom: 1px dotted #CCC;
+            color:#000;
+            text-decoration:none;
+            list-style-type:none;
+        }
+
+        .menu ul li {
+            text-decoration:none;
+            list-style-type:none;
+        }
+  
+  
+        .menu ul li a:hover{
+            background-color:rgba(0,0,0,0.5);
+            color:orange;
+        }
+  
+        .menu{
+            text-align:center;
+            background-color:rgba(255,255,255,0.5);
+            transition: 0.5s ease;/*滑らかに表示*/
+            -webkit-transform: translateX(100%);/*画面より100%外へ押し出し非表示にさせる*/
+            
+            /*  transform: translateX(-100%);/*右から出す場合は、マイナス100%としてください*/
+        }
+  
+        /*OPEN時の動き*/
+        .menu.open {
+            -webkit-transform: translateX(0%);
+            transform: translateX(0%);/*メニューを元の位置へ戻す*/
+        
+        }
+  
+        /*トグルボタンのスタイルを指定*/
+        .Toggle {
+            display: block;
+            position: fixed;    /* bodyに対しての絶対位置指定 */
+            width: 42px;
+            height: 42px;
+            cursor: pointer;
+            z-index: 3;
+            right:15px;
+            /* margin-right: 50%; */
+        }
+        
+        .Toggle span {
+            display: block;
+            position: absolute;
+            width: 40px;
+            border-bottom: solid 4px #333;
+            -webkit-transition: .35s ease-in-out;	/*変化の速度を指定*/
+            -moz-transition: .35s ease-in-out;		/*変化の速度を指定*/
+            transition: .35s ease-in-out;			/*変化の速度を指定*/
+        
+        }
+
+        /*各ボーダー少しずつずらす*/
+        .Toggle span:nth-child(1) {
+            top:5px;
+        }
+        .Toggle span:nth-child(2) {
+            top: 18px;
+        }
+        .Toggle span:nth-child(3) {
+            top: 32px;
+        }
+        .Toggle.active span:nth-child(1) {
+            top: 18px;
+        /* 1番目のspanをマイナス45度に */
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+        
+        /* 2番目と3番目のspanを45度に */
+        .Toggle.active span:nth-child(2),
+        .Toggle.active span:nth-child(3) {
+            top: 18px;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        main{
+            margin-top: -350px;
+        }
+
+        img{
+            width: 100%;
+        }
+  
+    /*----------------------------------ここからPCモニターの記述-----------*/
+    @media screen and (min-width: 600px) {
+        
+        /*ロゴの大きさを調整*/
+        #logo img{max-width:250px;}
+            
+        nav{
+            background-color: aqua;
+            display: flex;
+            justify-content: center;  /*ロゴ中央よせ*/
+        }
+        
+        .Toggle{
+            display: none;
+        }
+
+        .menu{
+            width: 100%;
+            font-size:0.9em;
+            background-color: #000;
+            margin:0 10px;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            margin-left: 0px;
+        }
+
+        .menu ul{
+            height: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* justify-content: flex-end; */
+            align-items: center;
+        }
+
+        .menu ul li{
+            width: 25%;
+            height: 25px;
+            padding-top: 5px;
+            /* border-right: solid;
+            border-right-width: 1px;
+            border-right-color: #fff; */
+        }
+
+        .menu ul li:hover{
+            background-color: blue;
+        }
+
+        .menu ul li a{
+            color:#fff;
+            padding: 0 1em;
+            border-bottom: none;
+        }
+        
+        .menu ul li a:hover{
+            background-color:transparent;
+        }
+
+        main{
+            margin-top: 0px;
+        }
+    }
+    </style>
+</head>
+<body>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <header>
+        <nav>
+            <div class="drawer">
+
+                <!--- いわゆるロゴ ------>
+                <div id="logo"><a href="#">LOGO</a></div>
+                <!--- いわゆるロゴ ------>
+                
+                <!-- ハンバーガーメニュー部分 --> 
+                <div class="Toggle">
+                　　<span></span>
+                　　<span></span>
+                　　<span></span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">access</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <img src="../navbar/back.png" alt="img">
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+    </main>
+
+    
+    <script type="text/javascript">
+        $(function() {
+            　$('.Toggle').click(function() {
+                $(this).toggleClass('active');
+                $('.menu').toggleClass('open');
+            });
+        });
+    </script>
+</body>
+</html>
